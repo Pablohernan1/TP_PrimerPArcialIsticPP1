@@ -1,6 +1,5 @@
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,10 +17,10 @@
     <link href="sticky-footer-navbar.css" rel="stylesheet">
         <link href="signin.css" rel="stylesheet">
   </head>
-<body>
 
+  <body>
 
-	<header>
+    <header>
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="index.php">Zanelli</a>
@@ -39,7 +38,7 @@
             <li class="nav-item">
               <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
             </li>
             <li class="nav-item">
@@ -61,9 +60,9 @@
     <main role="main" class="container">
 
 <body class="text-center">
-    <form class="form-signin">
-      <img class="mb-4" src="assets/brand/retiroAuto.png" alt="" width="72" height="72">
-
+    <form class="form-signin" >
+      <img class="mb-4" src="assets/brand/error.png" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Vehiculo no ingresado en la base.</h1>
 
 
 
@@ -80,104 +79,5 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
-
-<h2>Retiro de Vehiculos</h2>
-<h1></h1>
-
-<ol>
-<?php 
-error_reporting(0);
-
-$precioPorHora = 50;
-
-$flag = true;
-
-$miObjeto = new stdClass();
-
-$hora = time(); 
-date_default_timezone_set('America/Argentina/Buenos_Aires');
-$hora= date ('H:i', $hora);
-
-
-$patente = $_POST['patente'];
-$miObjeto->hora = $hora;
-
-$archivo = fopen('estacionados.txt', 'r+');
-
-
-	while(!feof($archivo)) 
-		{
-			$objeto = json_decode(fgets($archivo));
-			//echo "<li>"."Patente: ".$objeto->patente." "."Ingreso: " .$objeto->hora."</li>";
-			$patenteTxt = $objeto->patente;
-
-      			if ( $patenteTxt == $patente) {
-      				
-      				$patenteEncontrada = $objeto-> patente;
-      				$horaEncontrada = $objeto -> hora;
-
-      				$dateTime1 = date_create($horaEncontrada);
-      				$dateTime2 = date_create($hora);
-      				$interval = date_diff($dateTime1, $dateTime2);
-
-      				//$interval -> format($diferrenceFormat);
-      				echo " <h4> El vehiculo estuvo estacionado <br>".$interval->format('%h hs:%i min <br></h4>'); 
-      				//echo $interval->format('%hhs:%imin <br>');
-      				$porHora = $interval->format('%hhs') * $precioPorHora;
-      				echo "El precio por hora es de: $".$precioPorHora."<br>";
-      				echo "<h4>Total a pagar: $".$porHora."</h4>";
-              $flag = false;
-
-      				//echo ' Tiempo de ejecución: '.$horaEncontrada->format('%i minutos %s segundos');
-
-      				//echo($patenteEncontrada. " ". $horaEncontrada." ".$diferencia);
-      			} 
-
-		}
-    fclose($archivo);
-
-
-
-
-$reading = fopen('estacionados.txt', 'r');
-$writing = fopen('estacionados.tmp', 'w');
-$patente2 = $_POST['patente'];
-//echo $patente2;
-$replaced = false;
-
-while (!feof($reading)) {
-
-  $line = fgets($reading);
-  if (stristr($line,$patente2)) {
-    $line = "\n";
-    $replaced = true;
-  }
-  fputs($writing, $line);
-}
-fclose($reading); fclose($writing);
-// might as well not overwrite the file if we didn't replace anything
-if ($replaced) 
-{
-  rename('estacionados.tmp', 'estacionados.txt');
-} else {
-  unlink('estacionados.tmp');
-}
-		
-
-		if ($flag == false) {
-			$flag = true;	
-		}else echo '<meta http-equiv="Refresh" content="0;URL=vehiculoNoExiste.php">';
-
-
-
-	fclose($archivo);
-
-
-
-//echo '<meta http-equiv="Refresh" content="0;URL=index.php">';
- ?>
-
- </ol> 
-
-</body>
+  </body>
 </html>
