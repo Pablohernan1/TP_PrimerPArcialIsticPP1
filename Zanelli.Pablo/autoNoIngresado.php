@@ -32,14 +32,20 @@
             <li class="nav-item ">
               <a class="nav-link" href="registro.php">Registrate<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="listarUsuarios.php">Listado de usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="listadoVehiculos.php">Listado de Vehiculos</a>
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">
@@ -56,7 +62,7 @@
 <body class="text-center">
     <form class="form-signin" >
       <img class="mb-4" src="assets/brand/error.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">El vehiculo no se ha ingresado, debido a que ya esta ingresado al sistema.</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Vehiculo ya ingresado en la base.</h1>
 
 
 

@@ -9,3 +9,5 @@
 {"patente":"PHV372","hora":"10:12"}
 {"patente":"PHV642","hora":"10:57"}
 {"patente":"PHV947","hora":"10:59"}
+{"patente":"HIH556","hora":"21:56"}
+{"patente":"HIH543","hora":"21:56"}

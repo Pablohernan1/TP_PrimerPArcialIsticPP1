@@ -38,6 +38,9 @@
               <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="listarUsuarios.php">Listado de usuarios</a>
             </li>
             <li class="nav-item">

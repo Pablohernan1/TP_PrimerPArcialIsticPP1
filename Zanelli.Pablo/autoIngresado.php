@@ -32,11 +32,14 @@
             <li class="nav-item ">
               <a class="nav-link" href="registro.php">Registrate<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
               <a class="nav-link" href="login.php">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="listarUsuarios.php">Listado de usuarios</a>

@@ -35,8 +35,11 @@
             <li class="nav-item">
               <a class="nav-link" href="login.php">Login</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-iteme">
               <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="listarUsuarios.php">Listado de usuarios</a>
