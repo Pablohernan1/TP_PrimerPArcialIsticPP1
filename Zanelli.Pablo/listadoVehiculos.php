@@ -86,14 +86,16 @@
 
 <ol>
 	<?php
+  date_default_timezone_set('America/Argentina/Buenos_Aires');
 		$archivo = fopen("estacionados.txt", "r") or die("Imposible arbrir el archivo");
 		while(!feof($archivo)) 
 		{
 			$objeto = json_decode(fgets($archivo));
 
       if ($objeto != "") {
-      
-      echo "<li>"."Patente: ".$objeto->patente." "."Ingreso: " .$objeto->hora."</li>";
+        $horaEncontrada = $objeto -> hora;
+      $viejaMostrar =  date("d-m H:i", $horaEncontrada);
+      echo "<h6><li>"."Patente: ".$objeto->patente." "."Ingreso: " .$viejaMostrar."</li>";
       }
 
 		}

@@ -71,7 +71,7 @@
       <div class="checkbox mb-3">
 
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" value="Registrar">Ingresar</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" value="Registrar">Retiro</button>
 
     </main>
 

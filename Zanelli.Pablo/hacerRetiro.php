@@ -96,8 +96,8 @@ $miObjeto = new stdClass();
 
 $hora = time(); 
 date_default_timezone_set('America/Argentina/Buenos_Aires');
-$hora= date ('H:i', $hora);
 
+$horaActual2 = mktime();
 
 $patente = $_POST['patente'];
 $miObjeto->hora = $hora;
@@ -108,7 +108,7 @@ $archivo = fopen('estacionados.txt', 'r+');
 	while(!feof($archivo)) 
 		{
 			$objeto = json_decode(fgets($archivo));
-			//echo "<li>"."Patente: ".$objeto->patente." "."Ingreso: " .$objeto->hora."</li>";
+
 			$patenteTxt = $objeto->patente;
 
       			if ( $patenteTxt == $patente) {
@@ -116,21 +116,18 @@ $archivo = fopen('estacionados.txt', 'r+');
       				$patenteEncontrada = $objeto-> patente;
       				$horaEncontrada = $objeto -> hora;
 
-      				$dateTime1 = date_create($horaEncontrada);
-      				$dateTime2 = date_create($hora);
-      				$interval = date_diff($dateTime1, $dateTime2);
+              $viejaMostrar =  date("d-m-y H:i", $horaEncontrada);
+              $actualMostrar = date("d-m-y H:i", $horaActual2);
+      				
+              echo "El auto ingreso el ".$viejaMostrar."<br>";
+              echo "El auto se retira el ".$actualMostrar."<br>";
+      				$resultado =  $horaActual2 - $horaEncontrada;
+              echo round(($resultado/3600)). "<br>"; //Cantidad de horas hora
+              //echo round((($resultado/1800)))."<br>";//Cantidad de medias horas hora
 
-      				//$interval -> format($diferrenceFormat);
-      				echo " <h4> El vehiculo estuvo estacionado <br>".$interval->format('%h hs:%i min <br></h4>'); 
-      				//echo $interval->format('%hhs:%imin <br>');
-      				$porHora = $interval->format('%hhs') * $precioPorHora;
-      				echo "El precio por hora es de: $".$precioPorHora."<br>";
-      				echo "<h4>Total a pagar: $".$porHora."</h4>";
+
               $flag = false;
 
-      				//echo ' Tiempo de ejecución: '.$horaEncontrada->format('%i minutos %s segundos');
-
-      				//echo($patenteEncontrada. " ". $horaEncontrada." ".$diferencia);
       			} 
 
 		}
@@ -155,7 +152,8 @@ while (!feof($reading)) {
   fputs($writing, $line);
 }
 fclose($reading); fclose($writing);
-// might as well not overwrite the file if we didn't replace anything
+
+
 if ($replaced) 
 {
   rename('estacionados.tmp', 'estacionados.txt');

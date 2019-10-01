@@ -59,12 +59,12 @@
     <main role="main" class="container">
       <h1 class="mt-5">Bienvenido a Parking Zanelli S.A.</h1>
       <p class="lead"> Con este sistema va a poder administrar el estacionamiento ingresando los vehiculos por su patente, donde queda registrada la patente y hora de ingreso. </code>.</p>
-      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+      
     </main>
 
     <footer class="footer">
       <div class="container">
-               <p class="mb-1">&copy; 2017-2018 Parking Zanelli S.A.</p>
+               <p class="mb-1">&copy; 2019 Parking Zanelli S.A.</p>
       </div>
     </footer>
 

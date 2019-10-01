@@ -2,7 +2,7 @@
 error_reporting(0);
 $hora = time(); 
 date_default_timezone_set('America/Argentina/Buenos_Aires');
-$hora= date ('H:i', $hora);
+$hora= mktime();
 
 $flag = true;
 
