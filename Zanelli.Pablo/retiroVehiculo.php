@@ -47,6 +47,10 @@
             <li class="nav-item">
               <a class="nav-link" href="listadoVehiculos.php">Listado de Vehiculos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facturacion.php">Historico Facturacion</a>
+            </li>
+            
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -64,13 +68,21 @@
       <img class="mb-4" src="assets/brand/retiroAuto.png" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Retiro de Vehiculo</h1>
 
-      
+
+
 
       <input type="text" name="patente" class="form-control" placeholder="Ingrese la patente" required autofocus>
+        <h1 class="h1 mb-6 font-weight-normal"></h1>
+      <h1 class="h4 mb-6 font-weight-normal">Fraccion</h1>
+        <h1 class="h1 mb-6 font-weight-normal"></h1>     
 
-      <div class="checkbox mb-3">
+      <select name="fraccion">
 
-      </div>
+        <option value="hora">Por hora</option>
+        <option value="media">Media Hora</option>
+      </select>
+
+        <h1 class="h1 mb-6 font-weight-normal"></h1>
       <button class="btn btn-lg btn-primary btn-block" type="submit" value="Registrar">Retiro</button>
 
     </main>

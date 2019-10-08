@@ -9,7 +9,7 @@
     <link rel="icon" href="assets\brand\favIcon.png">
 
     <title>Parkin Zanelli S.A.</title>
-
+<link href="signin.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,9 +21,9 @@
 <body>
 
 
-	<header>
+  <header>
       <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
         <a class="navbar-brand" href="index.php">Zanelli</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -43,14 +43,15 @@
               <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="listarUsuarios.php">Listado de usuarios</a>
+              <a class="nav-link" href="listarUsuarios.php">Listado de usuarios</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="listadoVehiculos.php">Listado de Vehiculos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="facturacion.php">Historico Facturacion</a>
             </li>
+
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -61,14 +62,11 @@
     </header>
 
     <!-- Begin page content -->
-    <main role="main" class="container">
+    <main >
 
 <body class="text-center">
-    <form class="form-signin">
-      <img class="mb-4" src="assets/brand/user.png" alt="" width="72" height="72">
-
-
-
+    <form >
+      <img class="mb-4" src="assets/brand/user.png" alt="" width="72" height="72" >
 
 
 
@@ -80,24 +78,29 @@
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
 
-<h2>Listado de usuarios</h2>
+           
+        
+<h2>Facturacion Historica</h2>
+<nav>
+<ol >
+  <?php
+    $archivo = fopen("facturacion.txt", "r") or die("Imposible arbrir el archivo");
+    while(!feof($archivo)) 
+    {
+      $objeto = json_decode(fgets($archivo));
 
-<ol>
-	<?php
-		$archivo = fopen("usuarios.txt", "r") or die("Imposible arbrir el archivo");
-		while(!feof($archivo)) 
-		{
-			$objeto = json_decode(fgets($archivo));
+      if ($objeto != "") {
+      
+      echo "<li>"."<b>Patente: </b>".$objeto->patente." <b>Fecha Ingreso:</b> ".$objeto->FechaIngreso." <b>Fecha Egreso:</b> ".$objeto->FechaEgreso." <b>Precio:</b> $".$objeto->precio." </li>";
+      }
 
-			if ($objeto != "") {
-		 	
-			echo "<li>".$objeto->nombre." </li>";
-			}
-
-		}
-		fclose($archivo);
-	?>
+    }
+    fclose($archivo);
+  ?>
 </ol> 
+</nav>
+ </div>
+
 
 </body>
 </html>

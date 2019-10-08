@@ -48,6 +48,9 @@
             <li class="nav-item">
               <a class="nav-link" href="listadoVehiculos.php">Listado de Vehiculos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facturacion.php">Historico Facturacion</a>
+            </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -100,9 +103,11 @@ date_default_timezone_set('America/Argentina/Buenos_Aires');
 $horaActual2 = mktime();
 
 $patente = $_POST['patente'];
+$fraccion = $_POST['fraccion'];
 $miObjeto->hora = $hora;
 
 $archivo = fopen('estacionados.txt', 'r+');
+$archivo2 = fopen('facturacion.txt', 'a');
 
 
 	while(!feof($archivo)) 
@@ -122,9 +127,29 @@ $archivo = fopen('estacionados.txt', 'r+');
               echo "El auto ingreso el ".$viejaMostrar."<br>";
               echo "El auto se retira el ".$actualMostrar."<br>";
       				$resultado =  $horaActual2 - $horaEncontrada;
-              echo round(($resultado/3600)). "<br>"; //Cantidad de horas hora
-              //echo round((($resultado/1800)))."<br>";//Cantidad de medias horas hora
 
+              if ($fraccion == "hora") {
+                $precio = round($resultado/3600);
+                echo "El precio a pagar es de: $".$precio. "<br>"; //Cantidad de horas hora
+
+                  $miObjeto2 = new stdClass();
+                  $miObjeto2->patente = $patenteEncontrada;
+                  $miObjeto2->FechaIngreso = $viejaMostrar;
+                  $miObjeto2->FechaEgreso = $actualMostrar;
+                  $miObjeto2->precio = $precio;
+                fwrite($archivo2, json_encode($miObjeto2)."\n");
+              }
+              if ($fraccion == "media") {
+                $precio2 = round($resultado/1800);
+                echo "El precio a pagar es de: $". $precio2 ."<br>";//Cantidad de medias horas hora
+                  $miObjeto2 = new stdClass();
+                  $miObjeto2->patente = $patenteEncontrada;
+                  $miObjeto2->FechaIngreso = $viejaMostrar;
+                  $miObjeto2->FechaEgreso = $actualMostrar;
+                  $miObjeto2->precio = $precio;
+                fwrite($archivo2, json_encode($miObjeto2)."\n");
+              }
+              
 
               $flag = false;
 
@@ -134,11 +159,11 @@ $archivo = fopen('estacionados.txt', 'r+');
     fclose($archivo);
 
 
-
-
 $reading = fopen('estacionados.txt', 'r');
 $writing = fopen('estacionados.tmp', 'w');
 $patente2 = $_POST['patente'];
+$line2 = "\n";
+
 //echo $patente2;
 $replaced = false;
 
@@ -146,7 +171,7 @@ while (!feof($reading)) {
 
   $line = fgets($reading);
   if (stristr($line,$patente2)) {
-    $line = "\n";
+    $line = "";
     $replaced = true;
   }
   fputs($writing, $line);
@@ -165,6 +190,9 @@ if ($replaced)
 		if ($flag == false) {
 			$flag = true;	
 		}else echo '<meta http-equiv="Refresh" content="0;URL=vehiculoNoExiste.php">';
+
+
+
 
 
 

@@ -48,6 +48,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="listadoVehiculos.php">Listado de Vehiculos</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facturacion.php">Historico Facturacion</a>
+            </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -67,11 +70,6 @@
 
 
 
-    <footer class="footer">
-      <div class="container">
-
-      </div>
-    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
