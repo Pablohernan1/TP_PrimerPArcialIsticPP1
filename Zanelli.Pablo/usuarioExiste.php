@@ -29,22 +29,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-iteme">
-              <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
+            <li class="nav-item ">
+              <a class="nav-link" href="registro.php">Registrate<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="retiroVehiculo.php">Retiro de Vehiculos</a>
+            <li class="nav-item ">
+              <a class="nav-link" href="login.php">Login</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="listarUsuarios.php">Listado de usuarios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="listadoVehiculos.php">Listado de Vehiculos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="facturacion.php">Historico Facturacion</a>
-            </li>
-            
           </ul>
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -58,28 +48,11 @@
     <main role="main" class="container">
 
 <body class="text-center">
-    <form class="form-signin" action = "hacerRetiro.php" method="post">
-      <img class="mb-4" src="assets/brand/retiroAuto.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Retiro de Vehiculo</h1>
+    <form class="form-signin" >
+      <img class="mb-4" src="assets/brand/error.png" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Usuario ya registrado.</h1>
 
 
-
-
-      <input type="text" name="patente" class="form-control" placeholder="Ingrese la patente" required autofocus>
-        <h1 class="h1 mb-6 font-weight-normal"></h1>
-      <h1 class="h4 mb-6 font-weight-normal">Fraccion</h1>
-        <h1 class="h1 mb-6 font-weight-normal"></h1>     
-
-      <select name="fraccion">
-
-        <option value="hora">Por hora</option>
-        <option value="media">Media Hora</option>
-      </select>
-
-        <h1 class="h1 mb-6 font-weight-normal"></h1>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" value="Registrar">Retiro</button>
-
-    </main>
 
     <footer class="footer">
       <div class="container">

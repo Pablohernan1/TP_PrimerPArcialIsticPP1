@@ -1,7 +1,14 @@
 
 <!DOCTYPE html>
 <html>
+
   <head>
+    <style>
+table, th, td {
+
+  
+}
+</style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -16,7 +23,7 @@
     <!-- Custom styles for this template -->    
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="sticky-footer-navbar.css" rel="stylesheet">
-        <link href="signin.css" rel="stylesheet">
+
   </head>
 <body>
 
@@ -30,12 +37,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
-              <a class="nav-link" href="registro.php">Registrate<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="ingresoVehiculo.php">Ingreso de Vehiculo</a>
             </li>
@@ -81,20 +82,31 @@
            
         
 <h2>Facturacion Historica</h2>
+<table>
+  <tr>
+    <th>&nbspPATENTE&nbsp</th>
+    <th>&nbspFECHA DE INGRESO&nbsp</th>
+    <th>&nbspFECHA DE EGRESO&nbsp</th>
+    <th>&nbspIMPORTE&nbsp</th>
+  </tr>
+
 <nav>
 <ol >
   <?php
+  $acumulador = 0;
     $archivo = fopen("facturacion.txt", "r") or die("Imposible arbrir el archivo");
     while(!feof($archivo)) 
     {
       $objeto = json_decode(fgets($archivo));
 
       if ($objeto != "") {
-      
-      echo "<li>"."<b>Patente: </b>".$objeto->patente." <b>Fecha Ingreso:</b> ".$objeto->FechaIngreso." <b>Fecha Egreso:</b> ".$objeto->FechaEgreso." <b>Precio:</b> $".$objeto->precio." </li>";
+      echo "<tr>";
+      echo "<td>"."".$objeto->patente."</td>   <td>".$objeto->FechaIngreso."</td> <td>".$objeto->FechaEgreso."</td>  <td>$".$objeto->precio." </td>";
+        $acumulador = $acumulador + $objeto->precio;
       }
 
     }
+    echo "<h4> TOTAL FACTURADO: $".$acumulador."</h4>";
     fclose($archivo);
   ?>
 </ol> 
