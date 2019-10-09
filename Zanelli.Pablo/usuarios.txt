@@ -3,3 +3,5 @@
 {"nombre":"Pablo","pass":"Lgieco13"}
 {"nombre":"Pablo2","pass":"Lgieco13"}
 {"nombre":"Pablo23","pass":"dsadsadsa"}
+{"nombre":"Lucas","pass":"123456"}
+{"nombre":"Octavio","pass":"octavio"}

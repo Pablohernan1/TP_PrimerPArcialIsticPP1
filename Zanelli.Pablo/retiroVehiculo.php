@@ -71,7 +71,6 @@
         <h1 class="h1 mb-6 font-weight-normal"></h1>     
 
       <select name="fraccion">
-
         <option value="hora">Por hora</option>
         <option value="media">Media Hora</option>
       </select>

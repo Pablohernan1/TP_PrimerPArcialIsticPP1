@@ -92,6 +92,8 @@
 error_reporting(0);
 
 $precioPorHora = 50;
+$precioMediaHora = 15;
+$aPagar = 0;
 
 $flag = true;
 
@@ -130,26 +132,22 @@ $archivo2 = fopen('facturacion.txt', 'a');
 
               if ($fraccion == "hora") {
                 $precio = round($resultado/3600);
-                echo "El precio a pagar es de: $".$precio. "<br>"; //Cantidad de horas hora
+                $aPagar = $precio*$precioPorHora;
+                echo "El precio a pagar es de: $".$aPagar."<br>"; //Cantidad de horas hora
 
-                  $miObjeto2 = new stdClass();
-                  $miObjeto2->patente = $patenteEncontrada;
-                  $miObjeto2->FechaIngreso = $viejaMostrar;
-                  $miObjeto2->FechaEgreso = $actualMostrar;
-                  $miObjeto2->precio = $precio;
-                fwrite($archivo2, json_encode($miObjeto2)."\n");
-              }
-              if ($fraccion == "media") {
+
+              }else  {
                 $precio2 = round($resultado/1800);
-                echo "El precio a pagar es de: $". $precio2 ."<br>";//Cantidad de medias horas hora
+                $aPagar = $precio2*$precioMediaHora;
+                echo "El precio a pagar es de: $".$aPagar."<br>";//Cantidad de medias horas hora
+
+              }
                   $miObjeto2 = new stdClass();
                   $miObjeto2->patente = $patenteEncontrada;
                   $miObjeto2->FechaIngreso = $viejaMostrar;
                   $miObjeto2->FechaEgreso = $actualMostrar;
-                  $miObjeto2->precio = $precio;
+                  $miObjeto2->precio = $aPagar;
                 fwrite($archivo2, json_encode($miObjeto2)."\n");
-              }
-              
 
               $flag = false;
 
@@ -191,16 +189,8 @@ if ($replaced)
 			$flag = true;	
 		}else echo '<meta http-equiv="Refresh" content="0;URL=vehiculoNoExiste.php">';
 
-
-
-
-
-
 	fclose($archivo);
 
-
-
-//echo '<meta http-equiv="Refresh" content="0;URL=index.php">';
  ?>
 
  </ol> 
