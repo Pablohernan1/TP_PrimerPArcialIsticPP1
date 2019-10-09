@@ -7,3 +7,4 @@
 {"patente":"PHV371","FechaIngreso":"08-10-19 21:36","FechaEgreso":"08-10-19 21:36","precio":0}
 {"patente":"PHV344","FechaIngreso":"27-05-20 09:11","FechaEgreso":"08-10-19 21:38","precio":-277800}
 {"patente":"PHV360","FechaIngreso":"09-03-18 04:44","FechaEgreso":"08-10-19 21:38","precio":416670}
+{"patente":"EEE111","FechaIngreso":"04-10-19 09:34","FechaEgreso":"09-10-19 20:09","precio":3915}

@@ -38,7 +38,6 @@
 
           </ul>
           <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -49,7 +48,7 @@
     <main role="main" class="container">
 
 <body class="text-center">
-    <form class="form-signin" action = "hacerLogin.php" method="post">
+    <form class="form-signin" action = "hacerLogin.php" method="post" sesion>
       <img class="mb-4" src="assets/brand/icono.png" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Ingreso</h1>
 

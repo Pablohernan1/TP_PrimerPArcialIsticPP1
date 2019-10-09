@@ -61,15 +61,10 @@
     <form class="form-signin" action = "hacerRetiro.php" method="post">
       <img class="mb-4" src="assets/brand/retiroAuto.png" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Retiro de Vehiculo</h1>
-
-
-
-
       <input type="text" name="patente" class="form-control" placeholder="Ingrese la patente" required autofocus>
         <h1 class="h1 mb-6 font-weight-normal"></h1>
       <h1 class="h4 mb-6 font-weight-normal">Fraccion</h1>
         <h1 class="h1 mb-6 font-weight-normal"></h1>     
-
       <select name="fraccion">
         <option value="hora">Por hora</option>
         <option value="media">Media Hora</option>

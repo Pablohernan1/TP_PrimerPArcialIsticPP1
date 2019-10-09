@@ -3,7 +3,8 @@
 		$loginNombre = $_POST['nombre'];
 		$loginPassword = $_POST['passw'];
 		$flag = false;
-
+		session_start();
+			$_SESSION["user"]=$loginNombre;
 
 		$archivo = fopen("usuarios.txt", "r");
 
@@ -13,7 +14,8 @@
 
 
 			 	if ( $objeto -> nombre == $loginNombre && $objeto -> pass == $loginPassword) {
-
+						
+			 		
 			 		$flag = true;
 			 	} 
 

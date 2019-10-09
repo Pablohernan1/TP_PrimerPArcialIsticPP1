@@ -46,8 +46,14 @@
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+<?php
+
+    session_start();
+  $usuarioo = $_SESSION['user'];
+    echo '<button class="btn btn-outline-success my-2 my-sm-0" type="submit">'.$usuarioo.'</button>';
+ ?>
+
+            
           </form>
         </div>
       </nav>
@@ -60,7 +66,7 @@
     <form class="form-signin" >
       <img class="mb-4" src="assets/brand/succes.png" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">El ingreso se ha realizado correctamente</h1>
-
+ 
 
 
     <footer class="footer">
