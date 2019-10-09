@@ -98,6 +98,7 @@ $aPagar = 0;
 $flag = true;
 
 $miObjeto = new stdClass();
+$miObjeto2 = new stdClass();  
 
 $hora = time(); 
 date_default_timezone_set('America/Argentina/Buenos_Aires');
@@ -140,9 +141,8 @@ $archivo2 = fopen('facturacion.txt', 'a');
                 $precio2 = round($resultado/1800);
                 $aPagar = $precio2*$precioMediaHora;
                 echo "El precio a pagar es de: $".$aPagar."<br>";//Cantidad de medias horas hora
-
               }
-                  $miObjeto2 = new stdClass();
+                  
                   $miObjeto2->patente = $patenteEncontrada;
                   $miObjeto2->FechaIngreso = $viejaMostrar;
                   $miObjeto2->FechaEgreso = $actualMostrar;

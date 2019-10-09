@@ -86,7 +86,6 @@
   </tr>
 
 <nav>
-<ol >
   <?php
   $acumulador = 0;
     $archivo = fopen("facturacion.txt", "r") or die("Imposible arbrir el archivo");
@@ -95,8 +94,8 @@
       $objeto = json_decode(fgets($archivo));
 
       if ($objeto != "") {
-      echo "<tr>";
-      echo "<td>"."".$objeto->patente."</td>   <td>".$objeto->FechaIngreso."</td> <td>".$objeto->FechaEgreso."</td>  <td>$".$objeto->precio." </td>";
+      
+      echo "<tr><td>".$objeto->patente."</td>   <td>".$objeto->FechaIngreso."</td> <td>".$objeto->FechaEgreso."</td>  <td>$".$objeto->precio." </td></tr>";
         $acumulador = $acumulador + $objeto->precio;
       }
 
@@ -104,7 +103,7 @@
     echo "<h4> TOTAL FACTURADO: $".$acumulador."</h4>";
     fclose($archivo);
   ?>
-</ol> 
+</table> 
 </nav>
  </div>
 
